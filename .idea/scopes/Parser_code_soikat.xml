@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Parser_code_soikat" pattern="file:src//*||file:src/saikat_code//*" />
+</component>
