@@ -192,13 +192,13 @@ public class Parser_compatible {
                             String follow_left=follow_list.get(f.left);
                             if(follow_left==null)
                                 follow_left="";  // just a precaution
-                            /*String to_add="";
+                            String to_add="";
                             String fl_tokens[]=follow_left.split(" ");
                             for(String fltoken:fl_tokens){
-                                if(follow_list.get(A).indexOf(fltoken)!=-1)
+                                if(follow_list.get(A).indexOf(fltoken)==-1)
                                     to_add+=" "+fltoken;
-                            }*/
-                            String to_add=follow_left.trim();
+                            }
+                            to_add=to_add.trim();
                             follow_list.put(A,follow_list.get(A)+" "+to_add);
                         }
                     }
