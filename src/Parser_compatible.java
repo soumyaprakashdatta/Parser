@@ -209,7 +209,7 @@ public class Parser_compatible {
     }
 
     public static void createParseTable(){
-        takeFormulas();
+        //takeFormulas();
         useLR();
         createFirstList();
         System.out.println(first_list);
