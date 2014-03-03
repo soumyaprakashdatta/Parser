@@ -244,10 +244,10 @@ public class Parser_compatible {
         System.out.println("......................................\n");
         System.out.println("First list has "+entry_num+" entries .\n");
         if(entry_num>0){
-            System.out.println("Name\t\tEntry");
-            System.out.println("....................................");
+            System.out.println("Name\t\t\t\tEntry");
+            System.out.println(".....................................................");
             for(String key:first_list.keySet()){
-                System.out.print(key+"\t\t\t");
+                System.out.print(key+"\t\t\t\t\t");
                 String first=first_list.get(key);
                 String tokens[]=first.split(" ");
                 for(int i=0;i<tokens.length;i++){
@@ -267,10 +267,10 @@ public class Parser_compatible {
         System.out.println("......................................\n");
         System.out.println("Follow list has "+entry_num+" entries .\n");
         if(entry_num>0){
-            System.out.println("Name\t\tEntry");
-            System.out.println("....................................");
+            System.out.println("Name\t\t\t\tEntry");
+            System.out.println("........................................................");
             for(String key:follow_list.keySet()){
-                System.out.print(key+"\t\t\t");
+                System.out.print(key+"\t\t\t\t\t");
                 String follow=follow_list.get(key);
                 String tokens[]=follow.split(" ");
                 for(int i=0;i<tokens.length;i++){
