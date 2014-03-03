@@ -175,7 +175,7 @@ public class Parser_compatible {
                                     for(String fntoken:fn_tokens){
                                         if(fntoken.equals("empty"))
                                             epsilon_flag=1;
-                                        else
+                                        else if(follow_list.get(A).indexOf(fntoken)==-1)
                                             to_add+=" "+fntoken;
                                     }
                                     to_add=to_add.trim();
@@ -212,10 +212,7 @@ public class Parser_compatible {
         //takeFormulas();
         useLR();
         createFirstList();
-        System.out.println(first_list);
         createFollowList();
-        System.out.println(follow_list);
-        System.out.println("\n\n");
         print_first_list();
         print_follow_list();
     }
@@ -277,6 +274,8 @@ public class Parser_compatible {
                 String follow=follow_list.get(key);
                 String tokens[]=follow.split(" ");
                 for(int i=0;i<tokens.length;i++){
+                    if(tokens[i].equals(""))
+                        continue;
                     System.out.print(tokens[i]);
                     if(i<tokens.length-1)
                         System.out.print(",");
