@@ -209,7 +209,10 @@ public class Parser_compatible {
     }
 
     private static void parseTableGeneration(){
+        for(String rules_key:rules.keySet()){
+            formula f=rules.get(rules_key);
 
+        }
     }
 
     public static void createParseTable(){
