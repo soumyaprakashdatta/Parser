@@ -212,10 +212,8 @@ public class Parser_compatible {
     private static void parseTableGeneration(){
         for(String rules_key:rules.keySet()){
             formula f=rules.get(rules_key);
-            System.out.println("Key : "+f.left);
             String sections[]=f.right.split("\\|");
             for(String section:sections){
-                System.out.println("Section : "+section);
                 section=section.trim();
                 ArrayList<String> to_add_token=new ArrayList<>();
                 String tokens[]=section.split(" ");
@@ -286,7 +284,6 @@ public class Parser_compatible {
         print_first_list();
         print_follow_list();
         print_parse_table();
-
     }
 
     static void useLR(){
@@ -366,7 +363,7 @@ public class Parser_compatible {
         System.out.println("................................................");
         for(pt_key p:parseTable.keySet()){
             formula f=parseTable.get(p);
-            System.out.println(p.non_terminal+"\t\t\t\t\t"+p.terminal+"\t\t\t"+f.left+" -> "+f.right);
+            System.out.println(p.non_terminal+"\t\t\t\t\t"+p.terminal+"\t\t\t\t"+f.left+" -> "+f.right);
         }
     }
 }

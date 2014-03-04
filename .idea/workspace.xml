@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2038425c-a28c-48c2-9584-6c0d6577d2ed" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Parser_compatible.java" afterPath="$PROJECT_DIR$/src/Parser_compatible.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Parser.iws" />
@@ -62,23 +63,6 @@
       </breakpoint>
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/Parser_compatible.java" line="222" class="Parser_compatible" package="">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -139,10 +123,11 @@
       <file leaf-file-name="Parser_compatible.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Parser_compatible.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="255" column="25" selection-start="11360" selection-end="11360" vertical-scroll-proportion="0.8426573" vertical-offset="846" max-vertical-offset="2032">
+            <state line="368" column="1" selection-start="15570" selection-end="15570" vertical-scroll-proportion="2.7115386" vertical-offset="385" max-vertical-offset="2048">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#main#0;class#Parser_compatible#0" expanded="false" />
+                <element signature="method#isTerminal#0;class#Parser_compatible#0" expanded="false" />
                 <element signature="method#takeFormulas#0;class#Parser_compatible#0" expanded="false" />
                 <element signature="method#createFirstList#0;class#Parser_compatible#0" expanded="false" />
                 <element signature="method#createFirst#0;class#Parser_compatible#0" expanded="false" />
@@ -154,7 +139,6 @@
                 <element signature="method#print_rules#0;class#Parser_compatible#0" expanded="false" />
                 <element signature="method#print_first_list#0;class#Parser_compatible#0" expanded="false" />
                 <element signature="method#print_follow_list#0;class#Parser_compatible#0" expanded="false" />
-                <element signature="method#print_parse_table#0;class#Parser_compatible#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -163,7 +147,7 @@
       <file leaf-file-name="formula.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/formula.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="256">
+            <state line="8" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="256">
               <folding />
             </state>
           </provider>
@@ -172,7 +156,7 @@
       <file leaf-file-name="pt_key.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pt_key.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="199" selection-end="199" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="256">
+            <state line="8" column="0" selection-start="199" selection-end="199" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="256">
               <folding />
             </state>
           </provider>
@@ -268,30 +252,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Parser" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Parser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Parser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Parser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Parser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -572,7 +532,11 @@
       <created>1393972123920</created>
       <updated>1393972123920</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="All the rights associated with these files solely belong to Soumya Prakash Datta and Saikat Dutta , the authors.&#10;">
+      <created>1393972289519</created>
+      <updated>1393972289519</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -597,7 +561,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -605,17 +569,17 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7056856" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="1.0" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25377643" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25377643" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22205438" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2613293" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.9548495" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2613293" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.9966555" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -673,13 +637,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test_g2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="14" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0" vertical-offset="32" max-vertical-offset="128">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="175" column="50" selection-start="7373" selection-end="7373" vertical-scroll-proportion="0.0" vertical-offset="2800" max-vertical-offset="4048">
@@ -693,6 +650,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#main#0;class#Parser_compatible#0" expanded="false" />
+            <element signature="method#isTerminal#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#takeFormulas#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirstList#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirst#0;class#Parser_compatible#0" expanded="false" />
@@ -704,7 +662,6 @@
             <element signature="method#print_rules#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_first_list#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_follow_list#0;class#Parser_compatible#0" expanded="false" />
-            <element signature="method#print_parse_table#0;class#Parser_compatible#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -729,6 +686,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#main#0;class#Parser_compatible#0" expanded="false" />
+            <element signature="method#isTerminal#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#takeFormulas#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirstList#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirst#0;class#Parser_compatible#0" expanded="false" />
@@ -740,7 +698,6 @@
             <element signature="method#print_rules#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_first_list#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_follow_list#0;class#Parser_compatible#0" expanded="false" />
-            <element signature="method#print_parse_table#0;class#Parser_compatible#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -765,6 +722,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#main#0;class#Parser_compatible#0" expanded="false" />
+            <element signature="method#isTerminal#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#takeFormulas#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirstList#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirst#0;class#Parser_compatible#0" expanded="false" />
@@ -776,7 +734,6 @@
             <element signature="method#print_rules#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_first_list#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_follow_list#0;class#Parser_compatible#0" expanded="false" />
-            <element signature="method#print_parse_table#0;class#Parser_compatible#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -801,6 +758,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#main#0;class#Parser_compatible#0" expanded="false" />
+            <element signature="method#isTerminal#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#takeFormulas#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirstList#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirst#0;class#Parser_compatible#0" expanded="false" />
@@ -812,7 +770,6 @@
             <element signature="method#print_rules#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_first_list#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_follow_list#0;class#Parser_compatible#0" expanded="false" />
-            <element signature="method#print_parse_table#0;class#Parser_compatible#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -823,6 +780,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#main#0;class#Parser_compatible#0" expanded="false" />
+            <element signature="method#isTerminal#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#takeFormulas#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirstList#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirst#0;class#Parser_compatible#0" expanded="false" />
@@ -834,7 +792,6 @@
             <element signature="method#print_rules#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_first_list#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_follow_list#0;class#Parser_compatible#0" expanded="false" />
-            <element signature="method#print_parse_table#0;class#Parser_compatible#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -845,6 +802,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#main#0;class#Parser_compatible#0" expanded="false" />
+            <element signature="method#isTerminal#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#takeFormulas#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirstList#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirst#0;class#Parser_compatible#0" expanded="false" />
@@ -856,7 +814,6 @@
             <element signature="method#print_rules#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_first_list#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_follow_list#0;class#Parser_compatible#0" expanded="false" />
-            <element signature="method#print_parse_table#0;class#Parser_compatible#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -867,6 +824,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#main#0;class#Parser_compatible#0" expanded="false" />
+            <element signature="method#isTerminal#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#takeFormulas#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirstList#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirst#0;class#Parser_compatible#0" expanded="false" />
@@ -878,7 +836,6 @@
             <element signature="method#print_rules#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_first_list#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_follow_list#0;class#Parser_compatible#0" expanded="false" />
-            <element signature="method#print_parse_table#0;class#Parser_compatible#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -901,6 +858,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#main#0;class#Parser_compatible#0" expanded="false" />
+            <element signature="method#isTerminal#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#takeFormulas#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirstList#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirst#0;class#Parser_compatible#0" expanded="false" />
@@ -912,7 +870,6 @@
             <element signature="method#print_rules#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_first_list#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_follow_list#0;class#Parser_compatible#0" expanded="false" />
-            <element signature="method#print_parse_table#0;class#Parser_compatible#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -930,6 +887,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#main#0;class#Parser_compatible#0" expanded="false" />
+            <element signature="method#isTerminal#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#takeFormulas#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirstList#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirst#0;class#Parser_compatible#0" expanded="false" />
@@ -941,7 +899,6 @@
             <element signature="method#print_rules#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_first_list#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_follow_list#0;class#Parser_compatible#0" expanded="false" />
-            <element signature="method#print_parse_table#0;class#Parser_compatible#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1116,6 +1073,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="20352">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test_g2.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="14" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="128">
@@ -1139,10 +1103,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Parser_compatible.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="255" column="25" selection-start="11360" selection-end="11360" vertical-scroll-proportion="0.8426573" vertical-offset="846" max-vertical-offset="2032">
+        <state line="368" column="1" selection-start="15570" selection-end="15570" vertical-scroll-proportion="2.7115386" vertical-offset="385" max-vertical-offset="2048">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#main#0;class#Parser_compatible#0" expanded="false" />
+            <element signature="method#isTerminal#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#takeFormulas#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirstList#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#createFirst#0;class#Parser_compatible#0" expanded="false" />
@@ -1154,7 +1119,6 @@
             <element signature="method#print_rules#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_first_list#0;class#Parser_compatible#0" expanded="false" />
             <element signature="method#print_follow_list#0;class#Parser_compatible#0" expanded="false" />
-            <element signature="method#print_parse_table#0;class#Parser_compatible#0" expanded="false" />
           </folding>
         </state>
       </provider>
