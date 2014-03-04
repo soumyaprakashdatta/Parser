@@ -212,14 +212,19 @@ public class Parser_compatible {
     private static void parseTableGeneration(){
         for(String rules_key:rules.keySet()){
             formula f=rules.get(rules_key);
+            System.out.println("Key : "+f.left);
             String sections[]=f.right.split("\\|");
             for(String section:sections){
+                System.out.println("Section : "+section);
+                section=section.trim();
                 ArrayList<String> to_add_token=new ArrayList<>();
                 String tokens[]=section.split(" ");
                 int i;
                 int epsilon_flag=0;
                 for(i=0;i<tokens.length;i++){
-                    if(isTerminal(tokens[i])){
+                    if(tokens[i].equals("empty"))
+                        epsilon_flag=1;
+                    else if(isTerminal(tokens[i])){
                         pt_key p=new pt_key(tokens[i],f.left);
                         formula f1=new formula(f.left,section);
                         parseTable.put(p,f1);
@@ -237,20 +242,27 @@ public class Parser_compatible {
                                 continue;
                             if(t.equals("empty"))
                                 epsilon_flag=1;
-                            else if(to_add_token.indexOf(t)==-1)
+                            else //if(to_add_token.indexOf(t)==-1)
                                 to_add_token.add(t);
                         }
 
-                        if(epsilon_flag==0)
+                        if(epsilon_flag==0){
+                            for(String keys:to_add_token){
+                                pt_key p=new pt_key(keys,f.left);
+                                formula f1=new formula(f.left,section);
+                                parseTable.put(p,f1);
+                            }
                             break;
+                        }
+
                     }
 
-                    if(i==tokens.length){
+                    if(i==tokens.length || epsilon_flag==1){
                         String add_tokens[]=follow_list.get(f.left).split(" ");
                         for(String t:add_tokens){
                             if(t.equals("")||t.equals(" "))
                                 continue;
-                            else if(to_add_token.indexOf(t)==-1)
+                            else //if(to_add_token.indexOf(t)==-1)
                                 to_add_token.add(t);
                         }
 
