@@ -1,7 +1,9 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Scanner;
+import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Table;
+
+import java.util.*;
 
 
 public class Parser_compatible {
@@ -13,6 +15,7 @@ public class Parser_compatible {
     private static HashMap<String,String> first_list=new HashMap<>();
     private static HashMap<String,String> follow_list=new HashMap<>();
     public static HashMap<pt_key,formula> parseTable=new HashMap<>();
+    public static Table<String,String,formula> parse_Table=HashBasedTable.create();
     private static String first_rule=null;
 
     public static void main(String[] args) {
@@ -90,16 +93,7 @@ public class Parser_compatible {
                                 if(nt_first==null)
                                     nt_first="";  // just a precaution
                                 String to_add="";  // this will contain first(Non-terminal)-epsilon
-                                /*for(int k=0;k<nt_first.length();k++){
-                                    // If we find an epsilon in the first
-                                    // set the epsilon flag
-                                    // it will ensure that we will look for the first for next character
-                                    if(nt_first.charAt(k)=='!')
-                                        epsilon_flag=1;
-                                    else
-                                        to_add+=""+nt_first.charAt(k);
-                                }
-                                */
+
                                 String nt_tokens[]=nt_first.split(" ");
                                 for(String ntoken:nt_tokens){
                                     if(ntoken.equals("empty"))
@@ -219,17 +213,20 @@ public class Parser_compatible {
                 String tokens[]=section.split(" ");
                 int i;
                 int epsilon_flag=0;
+
                 for(i=0;i<tokens.length;i++){
                     if(tokens[i].equals("empty"))
                         epsilon_flag=1;
                     else if(isTerminal(tokens[i])){
                         pt_key p=new pt_key(tokens[i],f.left);
                         formula f1=new formula(f.left,section);
-                        parseTable.put(p,f1);
+                        //parseTable.put(p,f1);
+                        parse_Table.put(f.left,tokens[i],f1);
                         for(String keys:to_add_token){
                             p=new pt_key(keys,f.left);
                             f1=new formula(f.left,section);
-                            parseTable.put(p,f1);
+                            //parseTable.put(p,f1);
+                            parse_Table.put(f.left,keys,f1);
                         }
                         break;
                     }
@@ -240,7 +237,7 @@ public class Parser_compatible {
                                 continue;
                             if(t.equals("empty"))
                                 epsilon_flag=1;
-                            else //if(to_add_token.indexOf(t)==-1)
+                            else
                                 to_add_token.add(t);
                         }
 
@@ -248,7 +245,8 @@ public class Parser_compatible {
                             for(String keys:to_add_token){
                                 pt_key p=new pt_key(keys,f.left);
                                 formula f1=new formula(f.left,section);
-                                parseTable.put(p,f1);
+                                //parseTable.put(p,f1);
+                                parse_Table.put(f.left,keys,f1);
                             }
                             break;
                         }
@@ -260,14 +258,15 @@ public class Parser_compatible {
                         for(String t:add_tokens){
                             if(t.equals("")||t.equals(" "))
                                 continue;
-                            else //if(to_add_token.indexOf(t)==-1)
+                            else
                                 to_add_token.add(t);
                         }
 
                     for(String keys:to_add_token){
                         pt_key p=new pt_key(keys,f.left);
                         formula f1=new formula(f.left,section);
-                        parseTable.put(p,f1);
+                        //parseTable.put(p,f1);
+                        parse_Table.put(f.left,keys,f1);
                     }
                     }
                 }
@@ -283,7 +282,8 @@ public class Parser_compatible {
         parseTableGeneration();
         print_first_list();
         print_follow_list();
-        print_parse_table();
+        //print_parse_table();
+        printParseTable();
     }
 
     static void useLR(){
@@ -364,6 +364,21 @@ public class Parser_compatible {
         for(pt_key p:parseTable.keySet()){
             formula f=parseTable.get(p);
             System.out.println(p.non_terminal+"\t\t\t\t\t"+p.terminal+"\t\t\t\t"+f.left+" -> "+f.right);
+        }
+    }
+
+    static void printParseTable(){
+        System.out.println("\n");
+        System.out.println("....................................");
+        System.out.println("\t\tParse Table");
+        System.out.println("....................................");
+        System.out.println("\nNon-terminal\t\tTerminal\t\tFormula");
+        System.out.println("................................................");
+        for(String rowKey:parse_Table.rowKeySet()){
+            for(String colKey:parse_Table.columnKeySet()){
+                if(parse_Table.get(rowKey,colKey)!=null)
+                    System.out.println(rowKey+"\t\t\t\t\t"+colKey+"\t\t\t\t"+parse_Table.get(rowKey,colKey).left+" -> "+parse_Table.get(rowKey,colKey).right);
+            }
         }
     }
 }
