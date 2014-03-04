@@ -205,6 +205,7 @@ public class lrRemove {
             System.out.print(pr.name+" -> ");
             System.out.println(pr.toString());
         }
+        in.close();
     }
 
 }
