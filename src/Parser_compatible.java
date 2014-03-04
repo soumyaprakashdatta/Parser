@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Scanner;
@@ -211,6 +212,7 @@ public class Parser_compatible {
     private static void parseTableGeneration(){
         for(String rules_key:rules.keySet()){
             formula f=rules.get(rules_key);
+            ArrayList<String> to_add_token=new ArrayList<>();
             String sections[]=f.right.split("\\|");
             for(String section:sections){
                 String tokens[]=section.split(" ");
@@ -223,7 +225,28 @@ public class Parser_compatible {
                         break;
                     }
                     else {
+                        String add_tokens[]=first_list.get(tokens[i]).split(" ");
+                        for(String t:add_tokens){
+                            if(t.equals("")||t.equals(" "))
+                                continue;
+                            if(t.equals("empty"))
+                                epsilon_flag=1;
+                            else
+                                to_add_token.add(t);
+                        }
 
+                        if(epsilon_flag==0)
+                            break;
+                    }
+
+                    if(i==tokens.length){
+                        String add_tokens[]=follow_list.get(f.left).split(" ");
+                        for(String t:add_tokens){
+                            if(t.equals("")||t.equals(" "))
+                                continue;
+                            else
+                                to_add_token.add(t);
+                        }
                     }
                 }
             }
