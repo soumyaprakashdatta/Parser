@@ -1,9 +1,9 @@
 import com.google.common.collect.HashBasedTable;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Multimap;
 import com.google.common.collect.Table;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Scanner;
 
 
 public class Parser_compatible {
@@ -14,7 +14,6 @@ public class Parser_compatible {
     private static HashMap<String,formula> rules=new HashMap<>();
     private static HashMap<String,String> first_list=new HashMap<>();
     private static HashMap<String,String> follow_list=new HashMap<>();
-    public static HashMap<pt_key,formula> parseTable=new HashMap<>();
     public static Table<String,String,formula> parse_Table=HashBasedTable.create();
     private static String first_rule=null;
 
@@ -24,11 +23,7 @@ public class Parser_compatible {
 
     private static boolean isTerminal(String token){
         if(rules.get(token)==null)
-        {
-           // System.out.println(token + " is a terminal.");
             return true;
-        }
-        //System.out.println(token+" is a non-terminal.");
         return false;
     }
 
@@ -64,14 +59,10 @@ public class Parser_compatible {
                         int epsilon_flag=0;  // explained later
                         param=param.trim();
                         String tokens[]=param.split(" ");
-                        //for(String token:tokens)
-                        //System.out.println(token);
 
                         int i=0;  // needed to be defined outside the loop , explained later
                         for(String token:tokens) {
-                        //for(i=0;i<param.length();i++){
-
-                            // first(terminal)=terminal
+                        // first(terminal)=terminal
                             if(isTerminal(token)){
                                 if(first_list.get(A)!=null)
                                     first_list.put(A,first_list.get(A)+" "+token);
@@ -95,11 +86,11 @@ public class Parser_compatible {
                                 String to_add="";  // this will contain first(Non-terminal)-epsilon
 
                                 String nt_tokens[]=nt_first.split(" ");
-                                for(String ntoken:nt_tokens){
-                                    if(ntoken.equals("empty"))
+                                for(String nToken:nt_tokens){
+                                    if(nToken.equals("empty"))
                                         epsilon_flag=1;
                                     else
-                                        to_add+=" "+ntoken;
+                                        to_add+=" "+nToken;
                                 }
                                 to_add=to_add.trim();
 
@@ -107,7 +98,6 @@ public class Parser_compatible {
                                     first_list.put(A,first_list.get(A)+" "+to_add);
                                 else
                                     first_list.put(A,to_add);
-                                //System.out.println("toadd : "+to_add);
 
                                 // if epsilon flag is not set then we don't have to look for first for other characters
                                 if(epsilon_flag==0)
@@ -119,7 +109,7 @@ public class Parser_compatible {
                         // if we have finished all the characters in the param and for that reason came out of loop
                         // then that means that for every character in param first(character) contains epsilon
                         // so we have to add it to the list
-                        //System.out.println("i : "+i+"\ttokens length : "+tokens.length);
+
                         if(i==tokens.length)
                             first_list.put(A,first_list.get(A)+"empty");
                     }
@@ -136,13 +126,16 @@ public class Parser_compatible {
 
     private static void createFollow(String A){
         if(follow_list.get(A)==null){
+
             // add $ to the start symbol
             if(A.equals(first_rule))
                 follow_list.put(A,"$");
             else
                 follow_list.put(A,"");
-// In the modified system rules are stored in a hash map
-// we have to go through all the formulas in the hash map and search for the required token in the right hand side of all the formulas
+
+            // In the modified system rules are stored in a hash map
+            // we have to go through all the formulas in the hash map and search for the required token in the right hand side of all the formulas
+
             for(String rule_key:rules.keySet()){
                 formula f=rules.get(rule_key);
                 String params[]=f.right.split("\\|");
@@ -154,7 +147,6 @@ public class Parser_compatible {
                         int epsilon_flag=0;
                         int i;
                         for(i=index+1;i<tokens.length;i++) {
-                            //if(isTerminal(tokens[i]) && follow_list.get(A).indexOf(tokens[i])==-1){
                                 if(isTerminal(tokens[i])){   // fail-safe
                                 follow_list.put(A,follow_list.get(A)+" "+tokens[i]);
                                 break;
@@ -167,11 +159,11 @@ public class Parser_compatible {
                                     first_next="";  // just a precaution
                                 String to_add="";
                                 String fn_tokens[]=first_next.split(" ");
-                                    for(String fntoken:fn_tokens){
-                                        if(fntoken.equals("empty"))
+                                    for(String fnToken:fn_tokens){
+                                        if(fnToken.equals("empty"))
                                             epsilon_flag=1;
-                                        else if(follow_list.get(A).indexOf(fntoken)==-1)
-                                            to_add+=" "+fntoken;
+                                        else if(follow_list.get(A).indexOf(fnToken)==-1)
+                                            to_add+=" "+fnToken;
                                     }
                                     to_add=to_add.trim();
 
@@ -189,9 +181,9 @@ public class Parser_compatible {
                                 follow_left="";  // just a precaution
                             String to_add="";
                             String fl_tokens[]=follow_left.split(" ");
-                            for(String fltoken:fl_tokens){
-                                if(follow_list.get(A).indexOf(fltoken)==-1)
-                                    to_add+=" "+fltoken;
+                            for(String flToken:fl_tokens){
+                                if(follow_list.get(A).indexOf(flToken)==-1)
+                                    to_add+=" "+flToken;
                             }
                             to_add=to_add.trim();
                             follow_list.put(A,follow_list.get(A)+" "+to_add);
@@ -220,12 +212,9 @@ public class Parser_compatible {
                     else if(isTerminal(tokens[i])){
                         pt_key p=new pt_key(tokens[i],f.left);
                         formula f1=new formula(f.left,section);
-                        //parseTable.put(p,f1);
                         parse_Table.put(f.left,tokens[i],f1);
                         for(String keys:to_add_token){
-                            p=new pt_key(keys,f.left);
                             f1=new formula(f.left,section);
-                            //parseTable.put(p,f1);
                             parse_Table.put(f.left,keys,f1);
                         }
                         break;
@@ -243,9 +232,7 @@ public class Parser_compatible {
 
                         if(epsilon_flag==0){
                             for(String keys:to_add_token){
-                                pt_key p=new pt_key(keys,f.left);
                                 formula f1=new formula(f.left,section);
-                                //parseTable.put(p,f1);
                                 parse_Table.put(f.left,keys,f1);
                             }
                             break;
@@ -262,11 +249,9 @@ public class Parser_compatible {
                                 to_add_token.add(t);
                         }
 
-                    for(String keys:to_add_token){
-                        pt_key p=new pt_key(keys,f.left);
+                    for(String key:to_add_token){
                         formula f1=new formula(f.left,section);
-                        //parseTable.put(p,f1);
-                        parse_Table.put(f.left,keys,f1);
+                        parse_Table.put(f.left,key,f1);
                     }
                     }
                 }
@@ -282,7 +267,6 @@ public class Parser_compatible {
         parseTableGeneration();
         print_first_list();
         print_follow_list();
-        //print_parse_table();
         printParseTable();
     }
 
@@ -297,12 +281,6 @@ public class Parser_compatible {
         for(String key:source.keySet()){
             formula f=new formula(key,source.get(key).toString().trim());
             rules.put(key,f);
-        }
-    }
-
-    static void print_rules(){
-        for(String key:rules.keySet()){
-            System.out.println("Key : "+key+"\tF-left : " + rules.get(key).left + "\tF-right : " + rules.get(key).right);
         }
     }
 
@@ -354,18 +332,6 @@ public class Parser_compatible {
         }
     }
 
-    static void print_parse_table(){
-        System.out.println("\n");
-        System.out.println("....................................");
-        System.out.println("\t\tParse Table");
-        System.out.println("....................................");
-        System.out.println("\nNon-terminal\t\tTerminal\t\tFormula");
-        System.out.println("................................................");
-        for(pt_key p:parseTable.keySet()){
-            formula f=parseTable.get(p);
-            System.out.println(p.non_terminal+"\t\t\t\t\t"+p.terminal+"\t\t\t\t"+f.left+" -> "+f.right);
-        }
-    }
 
     static void printParseTable(){
         System.out.println("\n");
