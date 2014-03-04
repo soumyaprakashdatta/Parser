@@ -221,7 +221,8 @@ public class Parser_compatible {
                 for(i=0;i<tokens.length;i++){
                     if(isTerminal(tokens[i])){
                         pt_key_class p=new pt_key_class(tokens[i],f.left);
-                        parseTable.put(p,f);
+                        formula f1=new formula(f.left,section);
+                        parseTable.put(p,f1);
                         break;
                     }
                     else {
@@ -247,6 +248,12 @@ public class Parser_compatible {
                             else
                                 to_add_token.add(t);
                         }
+
+                    for(String keys:to_add_token){
+                        pt_key_class p=new pt_key_class(keys,f.left);
+                        formula f1=new formula(f.left,section);
+                        parseTable.put(p,f1);
+                    }
                     }
                 }
             }
@@ -261,6 +268,8 @@ public class Parser_compatible {
         parseTableGeneration();
         print_first_list();
         print_follow_list();
+        print_parse_table();
+
     }
 
     static void useLR(){
@@ -328,6 +337,19 @@ public class Parser_compatible {
                 }
                 System.out.println();
             }
+        }
+    }
+
+    static void print_parse_table(){
+        System.out.println("\n");
+        System.out.println("....................................");
+        System.out.println("\t\tParse Table");
+        System.out.println("....................................");
+        System.out.println("\nNon-terminal\t\tTerminal\t\tFormula");
+        System.out.println("................................................");
+        for(pt_key_class p:parseTable.keySet()){
+            formula f=parseTable.get(p);
+            System.out.println(p.non_terminal+"\t\t\t\t\t"+p.terminal+"\t\t\t"+f.left+" -> "+f.right);
         }
     }
 }

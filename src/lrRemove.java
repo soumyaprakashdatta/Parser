@@ -188,7 +188,7 @@ public class lrRemove {
 
         try {
             p.readRules(new File("C:\\codezone\\java\\Parser\\src\\"+file_name));
-            System.out.println("\nReading grammer !!");
+            System.out.println("\nReading grammar !!");
             for(String i:p.parseRules.keySet()){
                 ParseRule pr=p.parseRules.get(i);
                 System.out.print(pr.name+" -> ");
