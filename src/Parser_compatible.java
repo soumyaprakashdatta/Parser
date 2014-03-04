@@ -12,7 +12,7 @@ public class Parser_compatible {
     private static HashMap<String,formula> rules=new HashMap<>();
     private static HashMap<String,String> first_list=new HashMap<>();
     private static HashMap<String,String> follow_list=new HashMap<>();
-    public static HashMap<pt_key_class,formula> parseTable=new HashMap<>();
+    public static HashMap<pt_key,formula> parseTable=new HashMap<>();
     private static String first_rule=null;
 
     public static void main(String[] args) {
@@ -212,17 +212,22 @@ public class Parser_compatible {
     private static void parseTableGeneration(){
         for(String rules_key:rules.keySet()){
             formula f=rules.get(rules_key);
-            ArrayList<String> to_add_token=new ArrayList<>();
             String sections[]=f.right.split("\\|");
             for(String section:sections){
+                ArrayList<String> to_add_token=new ArrayList<>();
                 String tokens[]=section.split(" ");
                 int i;
                 int epsilon_flag=0;
                 for(i=0;i<tokens.length;i++){
                     if(isTerminal(tokens[i])){
-                        pt_key_class p=new pt_key_class(tokens[i],f.left);
+                        pt_key p=new pt_key(tokens[i],f.left);
                         formula f1=new formula(f.left,section);
                         parseTable.put(p,f1);
+                        for(String keys:to_add_token){
+                            p=new pt_key(keys,f.left);
+                            f1=new formula(f.left,section);
+                            parseTable.put(p,f1);
+                        }
                         break;
                     }
                     else {
@@ -250,7 +255,7 @@ public class Parser_compatible {
                         }
 
                     for(String keys:to_add_token){
-                        pt_key_class p=new pt_key_class(keys,f.left);
+                        pt_key p=new pt_key(keys,f.left);
                         formula f1=new formula(f.left,section);
                         parseTable.put(p,f1);
                     }
@@ -347,7 +352,7 @@ public class Parser_compatible {
         System.out.println("....................................");
         System.out.println("\nNon-terminal\t\tTerminal\t\tFormula");
         System.out.println("................................................");
-        for(pt_key_class p:parseTable.keySet()){
+        for(pt_key p:parseTable.keySet()){
             formula f=parseTable.get(p);
             System.out.println(p.non_terminal+"\t\t\t\t\t"+p.terminal+"\t\t\t"+f.left+" -> "+f.right);
         }
