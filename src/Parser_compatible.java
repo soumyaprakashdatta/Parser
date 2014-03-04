@@ -11,7 +11,7 @@ public class Parser_compatible {
     private static HashMap<String,formula> rules=new HashMap<>();
     private static HashMap<String,String> first_list=new HashMap<>();
     private static HashMap<String,String> follow_list=new HashMap<>();
-    public static String parse_table[][]=null;
+    public static HashMap<pt_key_class,formula> parseTable=new HashMap<>();
     private static String first_rule=null;
 
     public static void main(String[] args) {
