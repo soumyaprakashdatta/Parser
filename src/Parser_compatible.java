@@ -208,11 +208,16 @@ public class Parser_compatible {
         }
     }
 
+    private static void parseTableGeneration(){
+
+    }
+
     public static void createParseTable(){
         //takeFormulas();
         useLR();
         createFirstList();
         createFollowList();
+        parseTableGeneration();
         print_first_list();
         print_follow_list();
     }
