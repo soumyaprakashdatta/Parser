@@ -8,6 +8,7 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="jdk" jdkName="1.7" jdkType="JavaSDK" />
+    <orderEntry type="library" name="guava-16.0.1" level="project" />
   </component>
 </module>
 
