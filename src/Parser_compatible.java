@@ -211,7 +211,22 @@ public class Parser_compatible {
     private static void parseTableGeneration(){
         for(String rules_key:rules.keySet()){
             formula f=rules.get(rules_key);
+            String sections[]=f.right.split("\\|");
+            for(String section:sections){
+                String tokens[]=section.split(" ");
+                int i;
+                int epsilon_flag=0;
+                for(i=0;i<tokens.length;i++){
+                    if(isTerminal(tokens[i])){
+                        pt_key_class p=new pt_key_class(tokens[i],f.left);
+                        parseTable.put(p,f);
+                        break;
+                    }
+                    else {
 
+                    }
+                }
+            }
         }
     }
 
