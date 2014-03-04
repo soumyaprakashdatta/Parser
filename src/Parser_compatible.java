@@ -210,7 +210,6 @@ public class Parser_compatible {
                     if(tokens[i].equals("empty"))
                         epsilon_flag=1;
                     else if(isTerminal(tokens[i])){
-                        pt_key p=new pt_key(tokens[i],f.left);
                         formula f1=new formula(f.left,section);
                         parse_Table.put(f.left,tokens[i],f1);
                         for(String keys:to_add_token){
