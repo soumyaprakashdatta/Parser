@@ -237,7 +237,7 @@ public class Parser_compatible {
                                 continue;
                             if(t.equals("empty"))
                                 epsilon_flag=1;
-                            else
+                            else if(to_add_token.indexOf(t)==-1)
                                 to_add_token.add(t);
                         }
 
@@ -250,7 +250,7 @@ public class Parser_compatible {
                         for(String t:add_tokens){
                             if(t.equals("")||t.equals(" "))
                                 continue;
-                            else
+                            else if(to_add_token.indexOf(t)==-1)
                                 to_add_token.add(t);
                         }
 
